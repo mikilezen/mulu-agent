@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 220" role="img" aria-labelledby="title desc">
+  <title id="title">Mulu Agent language reviewer</title>
+  <desc id="desc">A speech bubble with Ethiopian-inspired green, yellow, and red stripes and Amharic and Afaan Oromo text.</desc>
+  <defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#0b6b3a"/><stop offset=".5" stop-color="#f2c230"/><stop offset="1" stop-color="#c62f35"/></linearGradient></defs>
+  <rect width="640" height="220" rx="28" fill="#172e67"/>
+  <rect x="26" y="26" width="188" height="168" rx="22" fill="url(#bg)"/>
+  <path d="M72 76h96a18 18 0 0 1 18 18v34a18 18 0 0 1-18 18h-45l-25 23v-23H72a18 18 0 0 1-18-18V94a18 18 0 0 1 18-18Z" fill="#fff" opacity=".96"/>
+  <text x="71" y="111" font-family="Noto Sans Ethiopic, sans-serif" font-size="25" font-weight="700" fill="#172e67">ሙሉ</text>
+  <text x="71" y="137" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#172e67">Afaan Oromoo</text>
+  <text x="246" y="92" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#fff">Mulu Agent</text>
+  <text x="248" y="128" font-family="Arial, sans-serif" font-size="20" fill="#dbe7ff">Language quality reviewer</text>
+  <text x="248" y="161" font-family="Noto Sans Ethiopic, sans-serif" font-size="18" fill="#fff">አማርኛ  •  Afaan Oromoo</text>
+</svg>
