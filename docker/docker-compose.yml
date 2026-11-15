@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: mulu-api
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=Mulu AI Agent Backend
+      - DEBUG=False
+      - LOG_LEVEL=INFO
+      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+      - FIREBASE_PRIVATE_KEY_ID=${FIREBASE_PRIVATE_KEY_ID}
+      - FIREBASE_PRIVATE_KEY=${FIREBASE_PRIVATE_KEY}
+      - FIREBASE_CLIENT_EMAIL=${FIREBASE_CLIENT_EMAIL}
+      - FIREBASE_CLIENT_ID=${FIREBASE_CLIENT_ID}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AI_MODEL=gpt-4
+    volumes:
+      - ../app:/app/app
+      - ../firebase-credentials.json:/app/firebase-credentials.json:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - mulu-network
+    depends_on:
+      - firebase-emulator
+
+  firebase-emulator:
+    image: google/cloud-sdk:latest
+    container_name: mulu-firebase-emulator
+    environment:
+      - FIREBASE_AUTH_EMULATOR_HOST=localhost:9099
+    ports:
+      - "9099:9099"
+      - "8080:8080"
+    volumes:
+      - firebase-data:/data
+    command: >
+      sh -c "firebase emulators:start --project=mulu-dev"
+    networks:
+      - mulu-network
+    profiles: ["dev"]
+
+volumes:
+  firebase-data:
+
+networks:
+  mulu-network:
+    driver: bridge

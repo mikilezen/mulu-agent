@@ -1,0 +1,10 @@
+*.log
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+env/
+.env
+firebase-credentials.json
